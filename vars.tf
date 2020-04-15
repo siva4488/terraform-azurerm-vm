@@ -1,3 +1,11 @@
+variable "subscription_id" {
+  }
+variable "client_id" {
+  }
+variable "tenant_id" {
+  }
+variable "client_secret" {
+  }
 variable "admin" {
   description = "Default user with root access"
   type = "map"
