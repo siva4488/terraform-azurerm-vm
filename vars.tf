@@ -37,6 +37,10 @@ variable "vm_disk_type" {
   description = "Storage class. Can be Standard_LRS or Premium_LRS"
   default = "Standard_LRS"
 }
+variable "allocation_method" {
+  description = "Defines how an IP address is assigned. Options are Static or Dynamic."
+  default     = "Dynamic"
+}
 variable "os" {
   description = "Disk image with preinstalled OS"
  # type = "map"
