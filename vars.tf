@@ -8,7 +8,7 @@ variable "client_secret" {
   }
 variable "admin" {
   description = "Default user with root access"
-  type = "map"
+ # type = "map"
   default = {
     name = "terraform"
     public_key = ""
@@ -39,7 +39,7 @@ variable "vm_disk_type" {
 }
 variable "os" {
   description = "Disk image with preinstalled OS"
-  type = "map"
+ # type = "map"
   default = {
     publisher = "OpenLogic"
     offer = "CentOS"
