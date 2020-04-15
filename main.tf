@@ -16,7 +16,8 @@ resource "azurerm_public_ip" "default" {
   name = var.name
   location = var.location
   resource_group_name =azurerm_resource_group.default.name
-  public_ip_address_allocation = "static"
+
+  public_ip_address_allocation = var.allocation_method
 }
 
 # Network security rules
