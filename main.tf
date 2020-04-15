@@ -63,7 +63,7 @@ resource "azurerm_network_interface" "default" {
   network_security_group_id = azurerm_network_security_group.default.id
 
   ip_configuration {
-    name = var.namespace-var.name-SubnetIPConfig
+    name = var.name
     subnet_id = azurerm_subnet.default.id
     private_ip_address_allocation = "dynamic"
     public_ip_address_id = azurerm_public_ip.default.id
@@ -87,7 +87,7 @@ resource "azurerm_virtual_machine" "default" {
   }
 
   storage_os_disk {
-    name = var.namespace-var.name-VM-OS
+    name = var.name
     caching = "ReadWrite"
     create_option = "FromImage"
     managed_disk_type = var.vm_disk_type
