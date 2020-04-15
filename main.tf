@@ -13,7 +13,7 @@ resource "azurerm_resource_group" "default" {
 
 # Public IP
 resource "azurerm_public_ip" "default" {
-  name = var.namespace-var.name-PublicIP
+  name = var.name
   location = var.location
   resource_group_name =azurerm_resource_group.default.name
   public_ip_address_allocation = "static"
@@ -23,7 +23,7 @@ resource "azurerm_public_ip" "default" {
 resource "azurerm_network_security_group" "default" {
   name = var.name
   location = var.location
-resource_group_name = "${azurerm_resource_group.default.name}"
+resource_group_name = azurerm_resource_group.default.name
 }
 
 resource "azurerm_network_security_rule" "ssh" {
