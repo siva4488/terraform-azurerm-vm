@@ -6,6 +6,8 @@ variable "tenant_id" {
   }
 variable "client_secret" {
   }
+variable "password" {
+  }
 variable "admin" {
   description = "Default user with root access"
  # type = "map"
