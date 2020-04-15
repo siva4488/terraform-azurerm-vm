@@ -1,6 +1,6 @@
 # Resource group
 resource "azurerm_resource_group" "default" {
-  name = var.namespace-var.name
+  name = var.name
   location = var.location
 }
 
@@ -14,7 +14,7 @@ resource "azurerm_public_ip" "default" {
 
 # Network security rules
 resource "azurerm_network_security_group" "default" {
-  name = var.namespace-var.name-SecurityGroup"
+  name = var.name
   location = var.location
 resource_group_name = "${azurerm_resource_group.default.name}"
 }
@@ -35,14 +35,14 @@ resource "azurerm_network_security_rule" "ssh" {
 
 # Virtual network
 resource "azurerm_virtual_network" "default" {
-  name = var.namespace-var.name-VirtualNetwork
+  name = var.name
   location = var.location
   resource_group_name = azurerm_resource_group.default.name
   address_space = [var.cidr]
 }
 
 resource "azurerm_subnet" "default" {
-  name = var.namespace-var.name-PrivateSubnet
+  name = var.name
   resource_group_name = azurerm_resource_group.default.name
   virtual_network_name = azurerm_virtual_network.default.name
   address_prefix = var.subnet
@@ -50,7 +50,7 @@ resource "azurerm_subnet" "default" {
 
 # Network interface
 resource "azurerm_network_interface" "default" {
-  name = var.namespace-var.name-NetworkInterface
+  name = var.name
   location = var.location
   resource_group_name = azurerm_resource_group.default.name
   network_security_group_id = azurerm_network_security_group.default.id
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "default" {
 
 # Virtual machine
 resource "azurerm_virtual_machine" "default" {
-  name = var.namespace-var.name}-VM
+  name = var.name
   location = var.location
   resource_group_name = azurerm_resource_group.default.name
   network_interface_ids = [azurerm_network_interface.default.id]
