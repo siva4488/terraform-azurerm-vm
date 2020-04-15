@@ -16,7 +16,6 @@ resource "azurerm_public_ip" "default" {
   name = var.name
   location = var.location
   resource_group_name =azurerm_resource_group.default.name
-
   public_ip_address_allocation = var.allocation_method
 }
 
@@ -100,7 +99,7 @@ resource "azurerm_virtual_machine" "default" {
    admin_password = var.admin["name"]
   }
 os_profile_linux_config {
-    provision_vm_agent = true
+    disable_password_authentication = false
   }
  # os_profile_linux_config {
     #disable_password_authentication = true
