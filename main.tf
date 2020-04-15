@@ -98,11 +98,11 @@ resource "azurerm_virtual_machine" "default" {
     admin_username = var.admin["name"]
   }
 
-  os_profile_linux_config {
-    disable_password_authentication = true
-    ssh_keys = {
-      path = "/home/var.admin["name"]/.ssh/authorized_keys"
-      key_data = var.admin["public_key"]
-    }
-  }
+ # os_profile_linux_config {
+    #disable_password_authentication = true
+    #ssh_keys = {
+      #path = "/home/${var.admin["name"]}/.ssh/authorized_keys"
+      #      key_data = var.admin["public_key"]
+   # }
+  #}
 }
