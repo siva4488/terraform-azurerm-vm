@@ -99,7 +99,9 @@ resource "azurerm_virtual_machine" "default" {
     admin_username = var.admin["name"]
    admin_password = var.admin["name"]
   }
-
+os_profile_linux_config {
+    provision_vm_agent = true
+  }
  # os_profile_linux_config {
     #disable_password_authentication = true
     #ssh_keys = {
