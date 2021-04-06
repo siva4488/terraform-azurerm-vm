@@ -4,6 +4,6 @@ output "resource_group_name" {
 output "network_security_group_name" {
   value = "${azurerm_network_security_group.default.name}"
 }
-output "azurevm_public_ip_address" {
-  value = "${azurerm_public_ip.default.name}"
+output "public_ip_address" {
+  value = data.azurerm_public_ip.example.ip_address
 }
