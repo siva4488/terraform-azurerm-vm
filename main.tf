@@ -20,6 +20,12 @@ resource "azurerm_public_ip" "default" {
    allocation_method   = "Dynamic"
 }
 
+data "azurerm_public_ip" "default" {
+  name                = azurerm_public_ip.default.name
+  resource_group_name = azurerm_resource_group.default.name
+}
+
+
 # Network security rules
 resource "azurerm_network_security_group" "default" {
   name = var.name
