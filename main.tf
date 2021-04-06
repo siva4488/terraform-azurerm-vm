@@ -17,14 +17,9 @@ resource "azurerm_public_ip" "default" {
   location = var.location
   resource_group_name =azurerm_resource_group.default.name
   #public_ip_address_allocation = var.allocation_method
-   allocation_method   = "Dynamic"
+  allocation_method   = "Dynamic"
+  ip_address = azurerm_public_ip.instances[0].ip_address
 }
-
-data "azurerm_public_ip" "default" {
-  name                = azurerm_public_ip.default.name
-  resource_group_name = azurerm_resource_group.default.name
-}
-
 
 # Network security rules
 resource "azurerm_network_security_group" "default" {
